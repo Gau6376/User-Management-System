@@ -24,9 +24,8 @@ app.use('/css',express.static(path.resolve(__dirname,"assets/css")));
 //css/style.css
 app.use('/js',express.static(path.resolve(__dirname,"assets/js")));
 
-app.get('/' , (req,res)=>{
-    res.render('index');
-});
+// load routers
+app.use('/',require('./server/routes/router'));
 
 app.listen(3000 , ()=>{
     console.log(`server is running on http://localhost:${PORT}`);
